@@ -3,7 +3,7 @@
 // * var is func scoped if not defined globally 
 // * both let and const are blocked scoped if not defined globally
 // * block scoped variables cannot be redeclared 
-var fName = "Caden"; 
+var fName = "Caden";
 let x = 10;
 const y = 20;
 //  redeclaring 
@@ -12,17 +12,17 @@ var fName = "Brandon";
 fName = "Sapphire";
 x = 0;
 
-// function addNums(num1,num2){
-//     let sum = num1 + num2;
-//     if(num1 < num2){
-//         sum = 7;
-//     }
-//     console.log(sum);
-//     return sum;
-// }
-// console.log(addNums(2,4));
+function addNums(num1,num2){
+    let sum = num1 + num2;
+    if(num1 < num2){
+        sum = 7;
+    }
+    console.log(sum);
+    return sum;
+}
+console.log(addNums(2,4));
 
-if(true){
+if (true) {
     let x = 20;
     console.log("X inside of block", x);
 }
@@ -30,12 +30,12 @@ console.log("X outside of block", x);
 
 // * const when using data structures 
 // * const means the reference to the data structure is constant the data structure itself can be changed
-const nums = [1,2,3,4,5]
+const nums = [1, 2, 3, 4, 5]
 
 const instructor = {
-    fName:"Caden",
-    lName:"Wilcox",
-    age:26
+    fName: "Caden",
+    lName: "Wilcox",
+    age: 26
 }
 nums.push(6)
 nums.pop()
@@ -44,11 +44,11 @@ console.log(nums);
 console.log(instructor);
 // nums = "Failed"
 
-instructor.address="123 blueberry ln";
+instructor.address = "123 blueberry ln";
 console.log(instructor);
 
 // functions es5
-function sayHi(name){
+function sayHi(name) {
     return "Hello" + name;
 }
 sayHi("asd")
@@ -60,13 +60,13 @@ const sayHiArrow = (name) => {
 const sayHiArrow2 = name => "Hello " + name;
 
 const addNumsArrow = (num1, num2) => num1 + num2;
-console.log(addNumsArrow(5,4));
+console.log(addNumsArrow(5, 4));
 console.log(sayHiArrow2("Paul"));
 
 sayHiArrow("asdfasdf");
 
 
-const ages = [17,26,35,41,15]
+const ages = [17, 26, 35, 41, 15]
 const [num, age2] = ages
 console.log(num, age2);
 
@@ -83,5 +83,19 @@ console.log(num, age2);
 const ages2 = [...ages, 33]
 console.log(ages2);
 
-const newStudentData = {...student, fName: "Yo"}
+const newStudentData = { ...student, fName: "Yo" }
 console.log(newStudentData);
+
+const obj = {
+    name: "John",
+    arrowMethod: function() {
+        console.log(this.name)
+    }
+};
+
+const newObj = { ...obj, name: "Joe" }
+//Logs the newObj object's properties
+console.log(newObj)
+//Executes the inherited arrowMethod on the newObj
+newObj.arrowMethod()
+
