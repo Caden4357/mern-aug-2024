@@ -72,3 +72,18 @@ console.log(evenNumsTernary(nums));
 
 
 
+const planet = {
+	name:"Jupiter",
+	milesFromSun: 49849,
+	mass: 393983,
+    composition: ["gas", "liquid", "oxygen"]
+}
+const planetCopy = {...planet}
+console.log(planet.composition[0] === planetCopy.composition[0]) // true 
+console.log(planet === planetCopy) // false
+
+const {mass: massOfPlanet} = planet
+console.log(massOfPlanet);
+
+// planet: Reference #1234 → { name, milesFromSun, mass, composition (Ref: #5678) }
+// planetCopy: Reference #2345 → { name, milesFromSun, mass, composition (Ref: #5678) }
