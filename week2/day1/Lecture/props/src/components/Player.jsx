@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const Player = props => {
-    let {name, position, number, points} = props
+    const {name, position, number, points} = props
     const [currentPoints, setCurrentPoints] = useState(points)
 
     const freeThrow = () => {

@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import './App.css'
 import Bench from './components/Bench'
 import Header from './components/Header'
@@ -7,6 +8,8 @@ import Team from './components/Team'
 
 function App() {
 
+  // const [getter, setGetter] = useState(someValueORNull);
+  
   return (
     <div className='border mx-auto text-center'>
       <Header />
