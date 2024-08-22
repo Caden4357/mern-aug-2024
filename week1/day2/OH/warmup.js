@@ -33,8 +33,19 @@ console.log(multiplyArray(nums));
 // }
 // return arr;
 
+for (let i = 0; i < nums.length; i++) {
+    console.log('FOR LOOP: ', nums[i]);
+}
 
-
+// This is the same as line 36 just shorthanded 
+nums.forEach(num => { 
+    console.log('FOR EACH: ', num)
+})
+let i = 0
+while(i < 5){
+    console.log('WHILE LOOP: ', i);
+    i++
+}
 // Pauls solution using map method 
 let timesTwo = (num) => num *2;
 let newArr = nums.map(timesTwo);
@@ -87,3 +98,9 @@ console.log(massOfPlanet);
 
 // planet: Reference #1234 → { name, milesFromSun, mass, composition (Ref: #5678) }
 // planetCopy: Reference #2345 → { name, milesFromSun, mass, composition (Ref: #5678) }
+
+
+
+console.log('hello world')
+
+

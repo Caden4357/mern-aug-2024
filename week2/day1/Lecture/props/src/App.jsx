@@ -11,11 +11,10 @@ function App() {
     <div className='border mx-auto text-center'>
       <Header />
       <Team />
-      <Player name={"Kevin Durant"} position={"Forward"} number={34} points={12}/>
+      <Player name={"Kevin Durant"} position={"Forward"} number={34} points={10}/>
       <Player name={"Kyrie Irving"} position={"Guard"} number={11} points={15}/>
       <Player name={"James Harden"} position={"Guard"} number={13} points={10}/>
       <Bench/>
-      {/* name:"Kevin Durant" */}
     </div>
   )
 }
