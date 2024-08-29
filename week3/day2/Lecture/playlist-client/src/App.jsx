@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Form albums={albums} setAlbums={setAlbums}/>
-      <Display albums={albums}/>
+      <Display albums={albums} setAlbums={setAlbums}/>
     </>
   )
 }
