@@ -1,7 +1,7 @@
 // * Frequency counter
 // * frequency counters using objects to collect values/frequencies of values 
 
-// 'hello' -> {h:1, e:1, l:1, l:1}
+// 'hello' -> {h:1, e:1, l:2, o:1}
 // 1.) write a function that takes in a string 
 // 2.) define an empty object to return at the end
 // 3.) loop over the string 
@@ -34,7 +34,7 @@ const frequencyCounterRefactored = (str) => {
     return result
 }
 
-console.log(frequencyCounterRefactored("hello"));
+// console.log(frequencyCounterRefactored("hello"));
 // const obj = {}
 // obj['h'] = 1;
 // console.log(obj);
@@ -56,14 +56,19 @@ const anagram = (str1, str2) => {
         return false;
     }
     const result1 = frequencyCounter(str1)
-    const result2 = frequencyCounter(str2)
     console.log(result1);
-    console.log(result2);
-    if(frequencyCounter(str1) == frequencyCounter(str2)){
-        return true;
-    }else{
-        return false;
+    // loop through string2 subtracting from result1 if the char is found if its not return false 
+    for(let char of str2){
+        if(!result1[char]){
+            return false;
+        }
+        else{
+            result1[char] -= 1
+            console.log(result1);
+        }
     }
+    return true
 
 }
 console.log(anagram("iceman", "cinema"));
+console.log(anagram("aaz", "zza"));
