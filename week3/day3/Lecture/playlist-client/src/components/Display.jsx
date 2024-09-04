@@ -20,6 +20,10 @@ const Display = (props) => {
         setAlbums(filteredList)
     }
 
+
+
+
+
     return (
         <>
             <h2>Albums</h2>
