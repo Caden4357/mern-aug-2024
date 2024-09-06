@@ -12,20 +12,20 @@ function App() {
 
 
 
-  // const callSwapi = () => {
-  //   axios.get('https://swapi.dev/api/people')
-  //     .then((response) => {
-  //       const results = response.data.results
-  //       console.log(response.data.results);
-  //       setPeople(results)
-  //       console.log(response.data.next);
-  //       // clear the error state here
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       // setError state here
-  //     })
-  // }
+  const callSwapi = () => {
+    axios.get('https://swapi.dev/api/people')
+      .then((response) => {
+        const results = response.data.results
+        console.log(response.data.results);
+        setPeople(results)
+        console.log(response.data.next);
+        // clear the error state here
+      })
+      .catch((error) => {
+        console.log(error);
+        // setError state here
+      })
+  }
 
   // useEffect
   // useEffect(() => {
