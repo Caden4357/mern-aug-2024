@@ -2,7 +2,7 @@ import express from 'express';
 const app = express()
 const port = 8000
 import { tvShows } from './data.js';
-
+app.use(express.json())
 // get route to return the entire list of tv shows 
 app.get('/api/tvshows', (req, res) => {
     res.json(tvShows)
@@ -23,10 +23,12 @@ app.delete('/api/tvshows/:title', (req, res) => {
 // PUT: for updating entire document 
 // PATCH: for updating a specific part of the document
 app.patch('/api/tvshows/:title', (req, res) => {
+    console.log('REQUEST OBJECT: ', req);
+    console.log('PARAMS OBJECT: ', req.params.title);
     const urlTitle = req.params.title
     tvShows.forEach((show, idx) => {
         if(show.tvShow == urlTitle){
-            tvShows.starring = req.body.starring
+            show.starring = req.body.starring
         }
     })
     res.json(tvShows)
