@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import dbConnect from './config/mongoose.config.js';
 import albumRoutes from './routes/album.routes.js'
 const app = express();
-app.use(express.json(), cors()); // middleware to use json in the request body and cors
+app.use(express.json(), cors({origin:'http://localhost:5173'})); // middleware to use json in the request body and cors
 app.use('/api/v1', albumRoutes)
 
 
