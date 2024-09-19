@@ -48,4 +48,3 @@ comment out the following lines:
 - TypeScript files have a .ts extension
 - TypeScript code can be compiled using the TypeScript compiler (tsc)
 - Helpful video I recommend: https://www.youtube.com/watch?v=d56mG7DezGs
-- another helpful video: https://www.youtube.com/watch?v=WBPrJSw7yQA

@@ -7,6 +7,8 @@ const Nav = (props) => {
             <nav>
                 <h1>Record Dot Com</h1>
                 <Link to={'/new/album'}>Post An Album</Link>
+                <br />
+                <Link to={'/'}>Home</Link>
             </nav>
         </header>
 )}

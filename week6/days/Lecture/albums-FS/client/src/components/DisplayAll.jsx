@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 const DisplayAll = (props) => {
     const [albums, setAlbums] = useState([])
     useEffect(() => {
@@ -21,6 +22,9 @@ const DisplayAll = (props) => {
                             <p>Album Name: {album.title}</p>
                             <p>Artist: {album.artist}</p>
                             <p>Release Year: {album.releaseYear}</p>
+                            <Link to={`/edit/album/${album._id}`}>Edit</Link>
+                            <br />
+                            <Link to={`/details/album/${album._id}`}>Details</Link>
                         </div>
                     ))
                 }

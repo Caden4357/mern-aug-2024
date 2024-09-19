@@ -7,6 +7,7 @@ const NewAlbumForm = (props) => {
     const [artist, setArtist] = useState('')
     const [releaseYear, setReleaseYear] = useState(2024)
     const [isExplicit, setIsExplicit] = useState(false)
+    const [errors, setErrors] = useState({})
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -21,7 +22,7 @@ const NewAlbumForm = (props) => {
                 navigate('/')
             })
             .catch((err) => {
-                console.log(err);
+                setErrors(err.response.data.errors);
             })
     }
     return (
@@ -30,16 +31,36 @@ const NewAlbumForm = (props) => {
             <form onSubmit={submitHandler}>
                 <div>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Album Title...' />
+                    {
+                        errors.title?
+                        <p className='text-danger'>{errors.title.message}</p>:
+                        null
+                    }
                 </div>
                 <div>
                     <input type="text" value={artist} onChange={(e) => setArtist(e.target.value)} placeholder='Artist...' />
+                    {
+                        errors.artist?
+                        <p className='text-danger'>{errors.artist.message}</p>:
+                        null
+                    }
                 </div>
                 <div>
                     <input type="text" value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} placeholder='Release Year...' />
+                    {
+                        errors.releaseYear?
+                        <p className='text-danger'>{errors.releaseYear.message}</p>:
+                        null
+                    }
                 </div>
                 <div>
                     <label>Explicit? </label>
-                    <input type="checkbox" value={isExplicit} onChange={() => setIsExplicit(!isExplicit)} placeholder='IsExplicit...' />
+                    <input type="checkbox" checked={isExplicit} onChange={() => setIsExplicit(!isExplicit)} placeholder='IsExplicit...' />
+                    {
+                        errors.isExplicit?
+                        <p className='text-danger'>{errors.isExplicit.message}</p>:
+                        null
+                    }
                 </div>
                 <button>Add</button>
             </form>
