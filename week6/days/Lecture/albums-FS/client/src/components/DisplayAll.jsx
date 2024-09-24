@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const DisplayAll = (props) => {
-    const [albums, setAlbums] = useState([])
+    const navigate = useNavigate()
+
+    const {albums, setAlbums} = props
     useEffect(() => {
+        console.log('Display all useEffect running.');
         axios.get('http://localhost:8000/api/v1/albums')
             .then((res) => {
                 setAlbums(res.data)
@@ -12,6 +15,13 @@ const DisplayAll = (props) => {
                 console.log(err);
             })
     }, [])
+
+    const deleteAlbum = (id) => {
+        axios.delete(`http://localhost:8000/api/v1/albums/${id}`)
+            .then(() => navigate('/'))
+            .catch((err) => console.log(err))
+        setAlbums(albums.filter(album => album._id !== id))
+    }
     return (
         <div>
             <h1>Albums</h1>
@@ -25,6 +35,7 @@ const DisplayAll = (props) => {
                             <Link to={`/edit/album/${album._id}`}>Edit</Link>
                             <br />
                             <Link to={`/details/album/${album._id}`}>Details</Link>
+                            <button onClick={() => deleteAlbum(album._id)}>Delete</button>
                         </div>
                     ))
                 }
