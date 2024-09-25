@@ -30,3 +30,9 @@ let person1:Person = {
 }
 test = 12312
 
+
+function addNums(num1:number, num2:number): number{
+    return num1 + num2
+}
+
+
