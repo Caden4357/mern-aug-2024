@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 import mongooseUniqueValidator from 'mongoose-unique-validator'
-import validator from 'mongoose-validator'
+import validator from 'validator'
 const { isEmail } = validator
 import bcrypt from 'bcrypt'
 const UserSchema = new Schema({
@@ -12,7 +12,8 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: [true, 'email is required'],
-        // validate: [isEmail, 'Email already exists']
+        validate: [isEmail, 'Not an email'],
+        unique: [true, 'Email already exists']
     },
     password: {
         type: String,

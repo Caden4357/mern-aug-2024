@@ -7,7 +7,7 @@ import EditAlbumForm from './components/EditAlbumForm'
 import Home from './views/Home'
 
 function App() {
-
+  
   return (
     <>
       <Nav/>
