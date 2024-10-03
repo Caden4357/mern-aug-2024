@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useContext} from 'react';
+import { Link, useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import {userContext} from '../context/userContext'
 
 const Register = (props) => {
+    const {user, setUser} = useContext(userContext)
+    const navigate = useNavigate()
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -9,8 +13,21 @@ const Register = (props) => {
 
     
     // ! Todo - submit handler
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/api/register', {username, email, password, confirmPassword}, {withCredentials:true})
+            .then((res) => {
+                setUser(res.data);
+                navigate('/home')
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <h1>Register</h1>
             <div>
                 <label>Username</label>
@@ -28,6 +45,7 @@ const Register = (props) => {
                 <label>Confirm Password</label>
                 <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
             </div>
+            <button>Register</button>
             <Link to="/">Already have an account?</Link>
         </form>
 )}

@@ -1,13 +1,29 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useContext} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import {userContext} from '../context/userContext'
+
 const Login = (props) => {
+    const {user, setUser} = useContext(userContext)
+    const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     
     // ! Todo - submit handler
+    const submitHandler = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/api/login', {email, password}, {withCredentials:true})
+            .then((res) => {
+                setUser(res.data);
+                navigate('/home')
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <h1>Login</h1>
             <div>
                 <label>Email</label>
@@ -17,6 +33,7 @@ const Login = (props) => {
                 <label>Password</label>
                 <input type="password" onChange={(e) => setPassword(e.target.value)} />
             </div>
+            <button>Login</button>
             <Link to="/register">Don't have an account?</Link>
         </form>
 )}
