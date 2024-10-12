@@ -26,3 +26,6 @@ const RestaurantSchema = new Schema({
         required: [true, 'User Id is required']
     }
 })
+
+const Restaurant = model('Restaurant', RestaurantSchema);
+export default Restaurant;

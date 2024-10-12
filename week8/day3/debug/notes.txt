@@ -1,0 +1,28 @@
+steps:  
+    1. Create a new project folder
+    2. Run: npm init -y
+    3. Run: npm i --save-dev jest @babel/preset-env
+    4. Create a new file called index.js
+    5. Create a new file called index.test.js
+    6. Run: npm test
+to use import export add a bable.config.js file
+    {
+        "presets": ["@babel/preset-env"]
+    }
+    install "@babel/preset-env" as a dev dependency
+    update package.json:
+        "test": "jest --watchAll --verbose"
+        "type": "module"
+
+Red Green Refactor:
+    Red: Write a failing test
+    Green: Write the simplest code to make the test pass
+    Refactor: Clean up the code
+
+The 3 rules of TDD:
+    1. Dont touch production code without a failing test - Red 
+    2. Dont add more than one test at a time - Green
+    3. Dont leave unnecessary code behind - Refactor
+
+youtube link: 
+
